@@ -6,7 +6,7 @@ function initHero() {
     "- For Everyone",
     "- Modernste Geräte",
     "- 24/7 Zugang",
-     "- Top Atmosphäre",
+    "- Top Atmosphäre"
   ];
  
   const CHAR_DELAY  = 60;
