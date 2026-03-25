@@ -646,8 +646,8 @@
       height: 100%;
       display: flex;
       align-items: flex-end;
-	max-width: 1640px;
-    }
+	    /*max-width: 1640px; */   
+      }
     
     .hero-grid {
       display: grid;
@@ -791,6 +791,7 @@
         color: #958e59;
 	justify-content: space-around;
     }
+
   </style>
 
   <style>
@@ -835,6 +836,61 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    /* Responsive chat-panel */
+    @media (max-width: 991px) {
+      .chat-panel {
+        top: 10%;
+        right: -100%;
+        width: 90%;
+        max-width: 320px;
+      }
+      .chat-panel.active {
+        right: 0;
+      }
+      .chat-box {
+        max-width: 100%;
+        height: 100%;
+        max-height: 80vh;
+      }
+      .chat-toggle {
+        width: 70px;
+        height: 70px;
+        right: 10px;
+        top: auto;
+        bottom: 14px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .chat-panel {
+        top: auto;
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+      .chat-panel.active {
+        right: 0;
+      }
+      .chat-box {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+      .chat-toggle {
+        right: 14px;
+        bottom: 14px;
+        top: auto;
+        transform: none;
+      }
+      .chat-messages {
+        max-height: calc(100vh - 200px);
+      }
     }
 
     .text-track {
@@ -1184,7 +1240,7 @@
               </div>
             </div>
           </a>
-          <a href="#contact" class="nav-link">
+          <a href="#kontact" class="nav-link">
             <div class="but">
               <i class="fa-regular fa-comment-dots"></i> 
               <div class="but-t">
@@ -1195,22 +1251,24 @@
           </a>
         </nav>
 
-        <button class="menu-btn" id="menuBtn">
-          <i class="fa-solid fa-bars"></i> Menü
+        <button class="menu-btn" id="menuBtn" aria-label="Меню">
+          <i class="fa-solid fa-bars"></i>
+          <span class="menu-text">Menü</span>
         </button>
 
           <!-- FLOATING SOCIAL -->
         <div class="social-float">
-          <a href="#pricing" class="social-btn primary" style="margin: 0 30px;">
-            <i class="fa-solid fa-bolt"></i> <span>Mitglied</span>
+          <a href="#pricing" class="social-btn primary" aria-label="Mitglied">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Mitglied</span>
           </a>
-          <a href="https://www.facebook.com/8black.fitness" target="_blank" class="social-btn">
+          <a href="https://www.facebook.com/8black.fitness" target="_blank" class="social-btn" aria-label="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://www.instagram.com/8blackfitnessdlg/" target="_blank" class="social-btn">
+          <a href="https://www.instagram.com/8blackfitnessdlg/" target="_blank" class="social-btn" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://wa.me/4915205924556" target="_blank" class="social-btn">
+          <a href="https://wa.me/4915205924556" target="_blank" class="social-btn" aria-label="WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
         </div>
@@ -1231,6 +1289,20 @@
         <a href="#pricing" class="drawer-link"><i class="fa-solid fa-tags"></i> Preise</a>
         <a href="#contact" class="drawer-link"><i class="fa-regular fa-comment-dots"></i> Kontakt</a>
       </div>
+      <div class="drawer-social">
+        <a href="#pricing" class="social-btn primary" aria-label="Mitglied">
+          <i class="fa-solid fa-bolt"></i>
+        </a>
+        <a href="https://www.facebook.com/8black.fitness" target="_blank" class="social-btn" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/8blackfitnessdlg/" target="_blank" class="social-btn" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/4915205924556" target="_blank" class="social-btn" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1240,19 +1312,20 @@
     
       <!-- HERO Start -->
       <section class="hero">
-        <div class="container">       
+        <div class="container">    
+            
             <div class="hero-content">
                 <h2>DEIN KÖRPER <br> DEINE REGELN</h2>
                 <p>Modernes Training. Hochwertige Geräte. <br> Maximale Ergebnisse – erlebe Fitness neu mit 8BLACKFITNESS.</p>
             </div>
-
             <div class="tw-wrap">
               <div class="screen" id="screen"></div>
             </div>
+          
 
-            <div class="scroll-arrow">
-              <i class="fas fa-chevron-down"></i>
-            </div>
+          <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+          </div>          
         </div>
       </section>
 
@@ -1340,7 +1413,7 @@
       </section>
       
       <!-- Projects Start -->
-      <section class="projects-section white-bg position-relative overflow-hidden">
+      <section id="gallery" class="projects-section white-bg position-relative overflow-hidden">
         <h2 class="title text-center">8BLACK</h2>
         <div class="container">
           <div class="row align-items-stretch overflow-hidden gy-1 gy-md-0 gx-1 gx-md-3 gx-lg-4">
@@ -1384,7 +1457,7 @@
       </section>
       
       <!-- Testimonials Start -->
-      <section class="testimonial-section white-bg position-relative overflow-hidden">
+      <section id="pricing" class="testimonial-section white-bg position-relative overflow-hidden">
         <h2 class="title text-center">
       Elitetrainer
       <span>
@@ -1424,7 +1497,7 @@
       </section>
     
       <!-- Contact Start -->
-      <section class="contact-us position-relative overflow-hidden">
+      <section id="kontact" class="contact-us position-relative overflow-hidden">
         <div class="container">
           <div class="row">
             <div class="col-md-5">
@@ -1644,27 +1717,9 @@
             </g>
         </svg>
     </div>
-    <!--div class="chat-text">
-        <div class="text-track">
-            <div class="text-line">&nbsp;&nbsp;Виртуальный помощник&nbsp;&nbsp;</div>
-            <div class="text-line">&nbsp;&nbsp;Виртуальный помощник&nbsp;&nbsp;</div>
-        </div>
-    </div-->
 </div>
 
 <div class="chat-panel" id="chatPanel">
-    <!--div class="chat-header">
-        <span>Чат</span>
-        <span class="chat-close" id="chatClose">×</span>
-    </!--div>
-    <div class="chat-body" id="chatBody">
-        <div class="message bot">Привет 👋</div>
-    </!div>
-    <div-- class="chat-footer">
-        <input type="text" id="chatInput" placeholder="Напиши сообщение...">
-        <button id="sendBtn">OK</button>
-    </div-->
-
   <div class="chat-box" id="chatBox">
     <!-- Chat Header -->
     <div class="chat-header">
