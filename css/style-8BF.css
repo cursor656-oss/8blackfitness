@@ -1524,7 +1524,7 @@
           line-height: 50px;
       }
       .tw-wrap .screen {
-          padding: 1.75rem 2.8rem;
+         /* padding: 1.75rem 2.8rem;*/
           min-height: 250px;
           box-sizing: border-box;
           width: 100%;
