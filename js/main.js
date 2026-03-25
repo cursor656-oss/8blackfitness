@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //}
     
 
-    //if (typeof initHero !== 'undefined') initHero();
+    if (typeof initHero !== 'undefined') initHero();
     //if (typeof initExclusive !== 'undefined') initExclusive();
     //if (typeof initBanner !== 'undefined') initBanner();
     //if (typeof initLines !== 'undefined') initLines();
