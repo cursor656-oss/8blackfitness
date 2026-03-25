@@ -1646,6 +1646,9 @@
         min-height: 1.6em;
         white-space: pre;
       }
+	  .designer-section {
+          height: auto;
+      }	
     }
     
     @media (prefers-reduced-motion: reduce) {
