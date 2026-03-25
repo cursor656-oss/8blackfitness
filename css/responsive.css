@@ -1,0 +1,23 @@
+@media screen and (max-width: 767px) {
+    h2 {
+        font-size: 2.25rem;
+    }
+    .banner13_heading-top, 
+    .banner13_heading-bottom {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .banner13_heading-top, 
+    .banner13_heading-bottom {
+        font-size: 3rem;
+    }
+    .banner-bg {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
