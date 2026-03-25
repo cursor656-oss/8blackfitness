@@ -1517,7 +1517,7 @@
           align-items: center;
       }
      .hero .hero-content {
-          margin-top: 100px;
+          margin-top: 160px;
       }
       .hero .hero-content h2 {
           font-size: 40px;
@@ -1637,7 +1637,7 @@
       }
       .tw-wrap {       
         min-width: 100vw;   
-        margin-top:70px
+        margin-top: 0;
       }
       .tw-wrap .line {
         font-size: 1.1rem;
