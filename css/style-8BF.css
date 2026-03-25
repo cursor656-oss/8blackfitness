@@ -1306,7 +1306,7 @@
 	    background: transparent;
       font-family: monospace;
       font-size: 2rem;
-	font-weight: 700;
+	    font-weight: 700;
       color: #ccc;
       line-height: 1.6;
       min-height: 1.6em;
@@ -1524,7 +1524,7 @@
           line-height: 50px;
       }
       .tw-wrap .screen {
-         /* padding: 1.75rem 2.8rem;*/
+          /*padding: 1.75rem 2.8rem;*/
           min-height: 250px;
           box-sizing: border-box;
           width: 100%;
@@ -1637,7 +1637,7 @@
       }
       .tw-wrap {       
         min-width: 100vw;   
-        margin-top: 0;
+        margin-top:0;
       }
       .tw-wrap .line {
         font-size: 1.1rem;
@@ -1646,9 +1646,9 @@
         min-height: 1.6em;
         white-space: pre;
       }
-	  .designer-section {
+      .designer-section {
           height: auto;
-      }	
+      }
     }
     
     @media (prefers-reduced-motion: reduce) {
@@ -1659,4 +1659,5 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
     }
