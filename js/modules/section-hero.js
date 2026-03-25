@@ -1,3 +1,4 @@
+/*
 function initHero() {
 
 	// Text animations
@@ -12,10 +13,10 @@ function initHero() {
     "- 24/7 Zugang"
   ];
  
-  const CHAR_DELAY  = 60;
-  const LINE_PAUSE  = 200;
+  const CHAR_DELAY  = 30;
+  const LINE_PAUSE  = 30;
   const END_PAUSE   = 10000;
-  const ERASE_DELAY = 60;
+  const ERASE_DELAY = 10;
  
   const screen = document.getElementById('screen');
   const heroSection = document.querySelector('.hero');
@@ -90,4 +91,85 @@ function initHero() {
     observer.observe(heroSection);
   }
 
+}
+
+*/
+
+function initHero() {
+
+  // Text
+  const lines = [
+    "WILLKOMMEN bei 8BLACKFITNESS",
+    "- Beste Fitnessgeräte",
+    "- Vielfältiges Training",
+    "- Solarium Flat",
+    "- Getränke Flat",
+    "- Kostenloses Duschen, W-LAN",
+    "- Parkplätze",
+    "- Modernste Geräte",
+    "- 24/7 Zugang"
+  ];
+
+  // SPEED (ускорено)
+  const CHAR_DELAY  = 40;
+  const LINE_PAUSE  = 150;
+  const END_PAUSE   = 3000;
+
+  const screen = document.getElementById('screen');
+  const heroSection = document.querySelector('.hero');
+
+  function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+  }
+
+  async function typeLine(el, text) {
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    el.appendChild(cursor);
+
+    for (let i = 0; i <= text.length; i++) {
+      el.textContent = text.slice(0, i);
+      el.appendChild(cursor);
+      await sleep(CHAR_DELAY);
+    }
+  }
+
+  async function run() {
+    screen.innerHTML = '';
+    const lineEls = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const div = document.createElement('div');
+      div.className = 'line';
+      screen.appendChild(div);
+      lineEls.push(div);
+
+      await typeLine(div, lines[i]);
+      div.textContent = lines[i];
+
+      await sleep(LINE_PAUSE);
+    }
+
+    // пауза после печати
+    await sleep(END_PAUSE);
+
+    // запускаем fade + grayscale
+    screen.classList.add('fade');
+  }
+
+  // запуск при появлении hero
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          run();
+        }, 5000);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (heroSection) {
+    observer.observe(heroSection);
+  }
 }
