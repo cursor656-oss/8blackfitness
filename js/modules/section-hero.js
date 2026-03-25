@@ -3,10 +3,13 @@ function initHero() {
 	// Text animations
   const lines = [
     "WILLKOMMEN bei 8BLACKFITNESS",
-    "- For Everyone",
+    "- Beste Fitnessgeräte",
+    "- Vielfältiges Training",
+    "- Solarium Flat",
+    "- Getränke Flat",
+    "- Kostenloses Duschen, W-LAN, Parkplätze",
     "- Modernste Geräte",
-    "- 24/7 Zugang",
-    "- Top Atmosphäre"
+    "- 24/7 Zugang"
   ];
  
   const CHAR_DELAY  = 60;
