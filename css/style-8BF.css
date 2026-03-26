@@ -1051,7 +1051,7 @@
       justify-content: center;
       flex-direction: column;
       z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 4s ease, visibility 0.5s ease;
       opacity: 1;
       visibility: visible;
     }
