@@ -1,0 +1,51 @@
+<svg width="220" height="220" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- центрируем трансформации в точке (100,100) -->
+  <g transform="translate(100,100)">
+
+    <g>
+      <!-- ВВЕРХ / ВНИЗ -->
+      <animateTransform attributeName="transform"
+        type="translate"
+        values="0 0; 0 -15; 0 0; 0 15; 0 0"
+        keyTimes="0;0.25;0.5;0.75;1"
+        dur="2.5s"
+        calcMode="spline"
+        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+        repeatCount="indefinite"/>
+
+      <!-- ВПЕРЁД / НАЗАД (от центра, без смещения) -->
+      <animateTransform attributeName="transform"
+        type="scale"
+        additive="sum"
+        values="1; 0.85; 1; 1.15; 1"
+        keyTimes="0;0.25;0.5;0.75;1"
+        dur="2.5s"
+        calcMode="spline"
+        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+        repeatCount="indefinite"/>
+
+      <!-- возвращаем обратно -->
+      <g transform="translate(-100,-100)">
+
+        <!-- ГРАНИ -->
+        <g fill="#6e4621">
+          <polygon points="70,160 130,160 130,175 70,175"/>
+          <polygon points="130,160 115,90 115,105 130,175"/>
+          <polygon points="115,90 150,90 150,105 115,105"/>
+          <polygon points="150,90 100,40 100,55 150,105"/>
+          <polygon points="100,40 50,90 50,105 100,55"/>
+          <polygon points="50,90 85,90 85,105 50,105"/>
+          <polygon points="85,90 70,160 70,175 85,105"/>
+        </g>
+
+        <!-- ВЕРХ -->
+        <polygon points="70,160 130,160 115,90 150,90 100,40 50,90 85,90"
+                 fill="#d4af37"/>
+
+      </g>
+    </g>
+
+  </g>
+
+</svg>
