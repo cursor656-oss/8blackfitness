@@ -1,0 +1,636 @@
+    .section-preis-8bf {
+      background-color: #000;
+      color: #fff;
+      padding-top: 272px;
+      position: relative;
+    }
+    .section-preis-8bf::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgb(0 0 0 / 30%) 18%, rgba(0, 0, 0, 0) 31%);
+        z-index: 2;
+    }
+    .pin-spacer {
+      z-index: 4;
+    }
+    .gsap-marker-end, 
+    .gsap-marker-start, 
+    .gsap-marker-scroller-end,
+    .gsap-marker-scroller-start {
+        display: none;
+    }
+    
+      /* ─── images section ─── */
+      .images-wrapper-8bf {
+        position: relative;
+        height: 110vh;
+        overflow: hidden;
+      }
+
+      .images-hero-8bf {
+        width: 100%;
+        height: 100%;
+        background: url("../img/section/preis/8bf-gala-2.jpg") center/cover no-repeat;
+        will-change: transform;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      .images-image-container-8bf {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; /* fallback for inset */
+        z-index: 2;
+        -webkit-perspective: 500px;
+        perspective: 500px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        overflow: hidden;
+      }
+      .images-image-container-8bf img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        will-change: transform, opacity;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      /* ─── scroll-arrow ─── */
+      .scroll-arrow-8bf {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        bottom: 140px;
+        left: 50%;
+        margin-left: -40px;
+        z-index: 10;
+        cursor: pointer;
+      }
+      .images-wrapper-8bf:not(.active-8bf) .price-card-8bf::before {
+        -webkit-animation-play-state: paused !important;
+        animation-play-state: paused !important;
+      }
+      .scroll-arrow-8bf img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -webkit-filter: drop-shadow(0 2px 16px rgba(0, 0, 0, 0.55));
+        filter: drop-shadow(0 2px 16px rgba(0, 0, 0, 0.55));
+      }
+
+      /* ═══════════════════════════════════════════
+       PRICING WALL
+    ═══════════════════════════════════════════ */
+      .pricing-wall-8bf {
+        position: absolute;
+        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; /* fallback for inset */
+        z-index: 3;
+        pointer-events: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .pricing-container-8bf {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 42px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
+        width: 100%;
+        max-width: 1060px;
+      }
+
+      /* ─── CARD BASE ─── */
+      .price-card-8bf {
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        padding: 30px;
+        border-radius: 20px;
+        color: #fff;
+        background:
+          -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(255, 255, 255, 0.05)),
+            to(rgba(0, 0, 0, 0.45))
+          ),
+          rgba(10, 10, 10, 0.88);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(0, 0, 0, 0.45)
+          ),
+          rgba(10, 10, 10, 0.88);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 18px;
+        pointer-events: none;
+        overflow: hidden;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        will-change: transform, opacity;
+        -webkit-transition: box-shadow 0.3s ease;
+        transition: box-shadow 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+        /* min-width для мобильных */
+        min-width: 260px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+      }
+
+      /* ─── АНИМИРОВАННЫЙ БОРДЕР через conic-gradient ─── */
+      /* Поддержка @property для плавной анимации угла */
+      @supports (background: conic-gradient(from 0deg, red, red)) {
+        @property --angle-8bf {
+          syntax: "<angle>";
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        .price-card-8bf::before {
+          content: "";
+          position: absolute;
+          inset: -4px;
+          top: -4px;
+          left: -4px;
+          right: -4px;
+          bottom: -4px;
+          border-radius: 22px;
+          background: conic-gradient(
+            from var(--angle-8bf, 0deg),
+            transparent 0%,
+            transparent 30%,
+            #c8a96e 45%,
+            #ffe6a0 50%,
+            #c8a96e 55%,
+            transparent 70%,
+            transparent 100%
+          );
+          -webkit-animation: borderSpin-8bf 4s linear infinite;
+          animation: borderSpin-8bf 4s linear infinite;
+          z-index: 0;
+          opacity: 0.7;
+        }
+
+        .price-card-8bf.premium-8bf {
+          filter: drop-shadow(2px 4px 6px gold);
+        }
+
+        .price-card-8bf.premium-8bf::before {
+          background: conic-gradient(
+            from var(--angle-8bf, 0deg),
+            transparent 0%,
+            transparent 20%,
+            #c8a96e 35%,
+            #fff5cc 50%,
+            #c8a96e 65%,
+            transparent 80%,
+            transparent 100%
+          );
+          -webkit-animation: borderSpin-8bf 2.5s linear infinite;
+          animation: borderSpin-8bf 2.5s linear infinite;
+          opacity: 1;
+        }
+
+        @keyframes borderSpin-8bf {
+          to {
+            --angle-8bf: 360deg;
+          }
+        }
+      }
+
+      /* Fallback border для браузеров без conic-gradient / @property */
+      @supports not (background: conic-gradient(from 0deg, red, red)) {
+        .price-card-8bf::before {
+          content: "";
+          position: absolute;
+          inset: -4px;
+          top: -4px;
+          left: -4px;
+          right: -4px;
+          bottom: -4px;
+          border-radius: 22px;
+          background: linear-gradient(
+            135deg,
+            #c8a96e,
+            #ffe6a0,
+            #c8a96e,
+            #ffe6a0
+          );
+          background-size: 300% 300%;
+          -webkit-animation: borderFallback-8bf 3s linear infinite;
+          animation: borderFallback-8bf 3s linear infinite;
+          z-index: 0;
+          opacity: 0.7;
+        }
+        .price-card-8bf.premium-8bf::before {
+          -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+          opacity: 1;
+        }
+        @keyframes borderFallback-8bf {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      }
+
+      /* внутренняя маска — закрывает центр градиента */
+      .price-card-8bf::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 18px;
+        background:
+          -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(rgba(255, 255, 255, 0.05)),
+            to(rgba(0, 0, 0, 0.45))
+          ),
+          rgba(10, 10, 10, 0.88);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(0, 0, 0, 0.45)
+          ),
+          rgba(10, 10, 10, 0.88);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        z-index: 1;
+      }
+
+      /* ─── hover glow ─── */
+      .price-card-8bf:hover {
+        filter: drop-shadow(2px 4px 6px gold);
+        /*box-shadow:
+        0 30px 80px rgba(0,0,0,0.85),
+        0 0 60px rgba(200,169,110,0.2),
+        0 0 120px rgba(200,169,110,0.1);*/
+      }
+      .price-card-8bf.premium-8bf:hover {
+        /*box-shadow:
+        0 30px 80px rgba(0,0,0,0.95),
+        0 0 80px rgba(200,169,110,0.35),
+        0 0 140px rgba(200,169,110,0.15);*/
+      }
+
+      /* ─── всё содержимое карточки — выше псевдоэлементов ─── */
+      .price-card-8bf > * {
+        position: relative;
+        z-index: 2;
+        -webkit-transform: translateZ(30px);
+        transform: translateZ(30px);
+      }
+      .price-card-8bf .btn-8bf {
+        -webkit-transform: translateZ(50px);
+        transform: translateZ(50px);
+      }
+
+      /* световое пятно под мышью */
+      .shine-8bf {
+        position: absolute;
+        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        background: radial-gradient(
+          400px circle at var(--x, 50%) var(--y, 50%),
+          rgba(255, 215, 130, 0.18),
+          transparent 60%
+        );
+        opacity: 0;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        z-index: 3;
+      }
+      .price-card-8bf:hover .shine-8bf {
+        opacity: 1;
+      }
+
+      /* ─── BADGE ─── */
+      .badge-8bf {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right bottom,
+          from(#ffe6a0),
+          to(#c8a96e)
+        );
+        background: linear-gradient(135deg, #ffe6a0, #c8a96e);
+        color: #000;
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 6px 14px;
+        border-bottom-left-radius: 12px;
+        border-top-right-radius: 0;
+        font-weight: 700;
+        z-index: 4;
+      }
+
+      .title-8bf {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .sub-8bf {
+        font-size: 11px;
+        letter-spacing: 2px;
+        opacity: 0.5;
+        margin-top: 4px;
+      }
+
+      .price-8bf {
+        font-size: 46px;
+        font-weight: 800;
+        color: #e7d08a;
+        line-height: 1;
+      }
+      .price-8bf span {
+        font-size: 16px;
+        font-weight: 400;
+        opacity: 0.55;
+      }
+
+      .meta-8bf {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        font-size: 14px;
+        gap: 16px;
+      }
+      .meta-8bf .left-8bf {
+        opacity: 0.45;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .meta-8bf .right-8bf {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 7px;
+        text-align: right;
+        opacity: 0.85;
+      }
+
+      .features-8bf {
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .features-8bf li {
+        font-size: 16px;
+        opacity: 0.82;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 9px;
+      }
+      .features-8bf li::before {
+        content: "✔";
+        color: #c8a96e;
+        font-size: 15px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+      }
+
+      .btn-8bf {
+        margin-top: auto;
+        padding: 13px;
+        border-radius: 40px;
+        border: none;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#121212),
+          to(#b79272)
+        );
+        background: linear-gradient(90deg, #121212, #b79272);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        pointer-events: auto;
+        -webkit-transition: all 0.32s ease-in-out;
+        transition: all 0.32s ease-in-out;
+        white-space: nowrap;
+        box-shadow: 0px 0px 12px #b792726b inset;
+      }
+      .btn-8bf:hover {
+        -webkit-transform: translateY(-2px) translateZ(50px);
+        transform: translateY(-2px) translateZ(50px);
+        color: gold;
+        box-shadow: 0 16px 40px gold;
+        -webkit-transition: all 0.32s ease-in-out;
+        transition: all 0.32s ease-in-out;
+      }
+
+      /* ─── tilt-active glow ─── */
+      .price-card-8bf.tilt-active-8bf {
+        box-shadow:
+          0 40px 100px rgba(0, 0, 0, 0.9),
+          0 0 80px rgba(200, 169, 110, 0.22);
+      }
+
+      /* ═══════════════════════════════════════════
+       АДАПТИВ
+    ═══════════════════════════════════════════ */
+
+      /* Планшет — 3 карточки чуть уже, gap меньше */
+      @media (max-width: 1024px) {
+        .pricing-container-8bf {
+          gap: 16px;
+        }
+        .price-card-8bf {
+          width: 260px;
+          padding: 22px;
+        }
+        .price-8bf {
+          font-size: 38px;
+        }
+      }
+
+      /* Мобильные — горизонтальный скролл карточек */
+      @media (max-width: 768px) {
+        .pricing-wall-8bf {
+          -webkit-box-align: end;
+          -ms-flex-align: end;
+          align-items: flex-end;
+          padding: 0 0 20px 0;
+        }
+
+        .pricing-container-8bf {
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          overflow-y: visible;
+          -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: none; /* IE/Edge */
+          scrollbar-width: none; /* Firefox */
+          gap: 12px;
+          padding: 12px 20px 16px;
+          width: 100%;
+          max-width: 100%;
+          -webkit-box-pack: start;
+          -ms-flex-pack: start;
+          justify-content: flex-start;
+          -webkit-perspective: none;
+          perspective: none;
+          /* snap */
+          scroll-snap-type: x mandatory;
+          -webkit-scroll-snap-type: x mandatory;
+        }
+        .pricing-container-8bf::-webkit-scrollbar {
+          display: none;
+        }
+
+        .price-card-8bf {
+          width: 82vw;
+          max-width: 320px;
+          min-width: 260px;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          padding: 22px 20px;
+          scroll-snap-align: start;
+          /* на мобиле 3D-трансформы отключены */
+          -webkit-transform-style: flat;
+          transform-style: flat;
+        }
+
+        /* отключаем 3D-контент на мобиле */
+        .price-card-8bf > * {
+          -webkit-transform: none;
+          transform: none;
+        }
+        .price-card-8bf .btn-8bf {
+          -webkit-transform: none;
+          transform: none;
+        }
+
+        .price-8bf {
+          font-size: 36px;
+        }
+        .title-8bf {
+          font-size: 20px;
+        }
+
+        .scroll-arrow-8bf {
+          width: 56px;
+          height: 56px;
+          bottom: 180px;
+          margin-left: -28px;
+        }
+      }
+
+      /* Очень маленькие экраны */
+      @media (max-width: 380px) {
+        .price-card-8bf {
+          width: 90vw;
+          padding: 18px 16px;
+        }
+        .price-8bf {
+          font-size: 30px;
+        }
+        .btn-8bf {
+          font-size: 11px;
+          padding: 11px;
+        }
+      }
+
+      /* Touch-устройства — убираем hover-эффекты тилта */
+      @media (hover: none) {
+        .price-card-8bf:hover {
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+        }
+        .price-card-8bf.premium-8bf:hover {
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+        }
+        .price-card-8bf:hover .shine-8bf {
+          opacity: 0;
+        }
+      }
